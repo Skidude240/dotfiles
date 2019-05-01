@@ -5,71 +5,51 @@
 Xcursor.size: 32
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!
-! Solarized (Dark) theme
-#define S_base03        #002b36
-#define S_base02        #073642
-#define S_base01        #586e75
-#define S_base00        #657b83
-#define S_base0         #839496
-#define S_base1         #93a1a1
-#define S_base2         #eee8d5
-#define S_base3         #fdf6e3
-
-*background:            S_base03
-*foreground:            S_base0
-*fadeColor:             S_base03
-*cursorColor:           S_base1
-*pointerColorBackground:S_base01
-*pointerColorForeground:S_base1
-
-#define S_yellow        #b58900
-#define S_orange        #cb4b16
-#define S_red           #dc322f
-#define S_magenta       #d33682
-#define S_violet        #6c71c4
-#define S_blue          #268bd2
-#define S_cyan          #2aa198
-#define S_green         #859900
+*background:         rgb:10/43/54
+*foreground:            #839496
+*fadeColor:             #002b36
+*cursorColor:           #93a1a1
+*pointerColorBackground:#586e75
+*pointerColorForeground:#93a1a1
 
 !! black dark/light
-*color0:                S_base02
-*color8:                S_base03
+*color0:                #073642
+*color8:                #002b36
 
 !! red dark/light
-*color1:                S_red
-*color9:                S_orange
+*color1:                #dc322f
+*color9:                #cb4b16
 
 !! green dark/light
-*color2:                S_green
-*color10:               S_base01
+*color2:                #859900
+*color10:               #586e75
 
 !! yellow dark/light
-*color3:                S_yellow
-*color11:               S_base00
+*color3:                #b58900
+*color11:               #657b83
 
 !! blue dark/light
-*color4:                S_blue
-*color12:               S_base0
+*color4:                #268bd2
+*color12:               #839496
 
 !! magenta dark/light
-*color5:                S_magenta
-*color13:               S_violet
+*color5:                #d33682
+*color13:               #6c71c4
 
 !! cyan dark/light
-*color6:                S_cyan
-*color14:               S_base1
+*color6:                #2aa198
+*color14:               #93a1a1
 
 !! white dark/light
-*color7:                S_base2
-*color15:               S_base3
+*color7:                #eee8d5
+*color15:               #fdf6e3
 
-
-
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! Xterm config
+! Xterm config
 ! Set TERM
 XTerm.termName: xterm-256color
+
+! Remove SCrollbar
+XTerm*scrollBar: false
 
 ! Fix Shift-Tab escape sequence
 XTerm*VT100.translations: #override \
@@ -81,8 +61,8 @@ XTerm*selectToClipboard: false
 
 !! Font
 ! Alt keys send correct escape sequence
-XTerm.vt100.eightBitInput: false
-XTerm.vt100.metaSendsEscape: true
+XTerm*eightBitInput: 0
+XTerm*metaSendsEscape: 1
 
 ! UTF-8
 xterm*locale: true
@@ -95,63 +75,8 @@ XTerm.vt100.forceBoxChars: true
 ! Deja Vu Sans Mono (Nerd Font)
 !XTerm.vt100.faceName: xft:DejaVuSansMono Nerd Font Mono:regular:size=10:antialias=true:hinting=true
 ! Meslo (Menlo Nerd Font)
-XTerm.vt100.faceName: xft:MesloLGSDZ Nerd Font Mono:regular:size=10:antialias=true:hinting=true
+XTerm*faceName: xft:MesloLGS Nerd Font Mono:RegularForPowerline:size=10:antialias=true:hinting=true
 ! Consolas (manually patched Nerd Fonts version)
 !XTerm.vt100.faceName: xft:Consolas NF:regular:size=11:antialias=true:hinting=true
 
 
-!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-!!! URxvt config
-!!! NOTE: Install the wideglyphs version of urxvt, e.g. https://aur.archlinux.org/packages/rxvt-unicode-cvs-patched-wideglyphs/
-
-! Disable scrollbar
-URxvt.scrollBar: off
-
-! Scrollback size
-URxvt.saveLines: 1024
-
-! Fix solarized colors
-URxvt.intensityStyles: false
-
-! do not scroll with output
-URxvt*scrollTtyOutput: false
-
-! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
-URxvt*scrollWithBuffer: true
-
-! scroll back to the bottom on keypress
-URxvt*scrollTtyKeypress: true
-
-! Disable scrollback on 2nd screen
-URxvt.secondaryScreen: 1
-URxvt.secondaryScroll: 0
-
-! Use clipboard
-URxvt.perl-ext-common: selection-to-clipboard
-
-!! Font
-URxvt.letterSpace: 0
-URxvt.lineSpace: -5
-
-! MesloLGSDZ (Menlo Nerd Font)
-URxvt.font: xft:MesloLGSDZ Nerd Font Mono:regular:size=10:antialias=true:hinting=true
-URxvt.boldFont: xft:MesloLGSDZ Nerd Font Mono:bold:size=10:antialias=true:hinting=true
-URxvt.italicFont: xft:MesloLGSDZ Nerd Font Mono:italic:size=10:antialias=true:hinting=true
-URxvt.boldItalicFont: xft:MesloLGSDZ Nerd Font Mono:bold:italic:size=10:antialias=true:hinting=true
-
-
-! Consolas (manually patched Nerd Fonts version)
-!URxvt.font: xft:Consolas NF:regular:size=10:antialias=true:hinting=true
-!URxvt.boldFont: xft:Consolas NF:bold:size=10:antialias=true:hinting=true
-!URxvt.italicFont: xft:Consolas NF:italic:size=10:antialias=true:hinting=true
-!URxvt.boldItalicFont: xft:Consolas NF:bold:italic:size=10:antialias=true:hinting=true
-
-! Fix arrow keys in vim
-URxvt.keysym.M-Down:        \033[1;3B
-URxvt.keysym.M-Up:          \033[1;3A
-URxvt.keysym.M-Left:        \033[1;3D
-URxvt.keysym.M-Right:       \033[1;3C
-URxvt.keysym.Control-Up:    \033[1;5A
-URxvt.keysym.Control-Down:  \033[1;5B
-URxvt.keysym.Control-Left:  \033[1;5D
-URxvt.keysym.Control-Right: \033[1;5C
