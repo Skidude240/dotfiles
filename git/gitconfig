@@ -1,6 +1,9 @@
 [user]
   # Default author name
-  name = Rui Pinheiro
+  name = Anders Convery
+
+[pretty]
+  tree = "%Cred%h %Creset%ad%C(auto)%d %Creset %s %C(bold)(%an)%Creset"
 
 [core]
   # Set a local excludes file
@@ -20,22 +23,26 @@
   untrackedCache = keep
 
 [diff]
-  # Use vimdiff for diffs
-  tool = vimdiff
-  # Use a better diff algorithm
-  algorithm = histogram
-
-[difftool]
-  # Do not ask which difftoll to use
+  indentHeuristic = true
   prompt = false
+  wsErrorHighlight = all
+  algorithm = histogram ; produce better diffs
 
 [rerere]
-  # Do not enable rerere (Reuse Recorded Resolution)
-  enabled = false
+	enabled = true
+[rebase]
+	autoStash = true
+	stat = false
+	autoSquash = true
+
+[diff-so-fancy]
+  useUnicodeRuler = false
 
 [merge]
   # Set default conflict style
   conflictstyle = diff3
+  # toool is kdiff3
+  tool = kdiff3
 
 [push]
   # Block pushes if submodules are not present on the remote
@@ -44,73 +51,48 @@
   default = upstream
 
 [pull]
-  # Do not automatically rebase when doing 'git pull', only allow fast-forward rebases
-  ff = only
+  # preform rebase on pull
+  rebase = true
+
+[pager]
+	status = true
+[color]
+	ui = true
+[color "diff-highlight"]
+	oldNormal = red bold
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
+[color "diff"]
+	meta = 227
+	frag = magenta bold
+	commit = 227 bold
+	old = red bold
+	new = green bold
+	whitespace = red reverse
 
 [status]
   # Submarize the submodule status when doing 'git status'
   submodulesummary = 1
 
-[fetch]
-  # Automatically prune stale remote branches on fetch
-  prune = 1
-
 [alias]
-  # Simple aliases
-  a = add
-  aa = add -A
-
-  d = diff
-  cp = cherry-pick
-  cl = clone
+  tree = !sh -c 'git log --glob="*${1-$(git rev-parse --abbrev-ref HEAD)}" --graph --color --date=short --format=tree' -
+  stree = !sh -c 'git log --first-parent --glob="*${1-$(git rev-parse --abbrev-ref HEAD)}" --graph --color --date=short --format=tree' -
+  atree = log --oneline --decorate --graph --all
+  st = status
   co = checkout
-  b = branch
-
-  rb = rebase
-  rebaseu = rebase @{u}
-  rbu = rebase @{u}
-  rebasea = rebase --abort
-  rba = rebase --abort
-  rebasec = rebase --continue
   rbc = rebase --continue
-  rebasei = rebase -i
-  rbi = rebase -i
-  rebaseiu = rebase -i @{u}
-  rbiu = rebase -i @{u}
-
-  rst     = reset
-  reseth  = reset --hard
-  rsth    = reset --hard
-  resetu  = reset @{u}
-  rstu    = reset @{u}
-  resethu = reset --hard @{u}
-  rsthu   = reset --hard @{u}
-
-  s = status -s
-  statustr = status --untracked-files=no
-  str = !git s --untracked-files=no
-
-  sl = stash list
-  sa = stash apply
-  ss = stash save
-
-  ci = commit
-  cm = commit -m
-  ca = commit --amend
-  can = commit --amend --no-edit
-  cam = commit --amend -m
-
-  unstage = reset HEAD --
-  cbranch = checkout -b
-  squash = merge --squash
-  squash-merge = !git squash
-
-  ff-merge = merge --ff-only
-  ff = !git ff-merge
-
-  f = fetch
-  fetch-all = fetch --all
-  fa = !git fetch-all
+  svrev = !sh -c  'git checkout -b svn_rev_r$1 `git svn find-rev r$1`' -
+  svnup = !sh -c 'git checkout master && git svn rebase && git-svn-ext refresh && git-svn-ext update'
+  np = !git --no-pager $!
+  sdiff = diff --submodule=diff
+  ss = submodule status
+  su = submodule update
+  sr = submodule update --remote
+  caned = commit --amend --no-edit
+  ups = !sh -c 'git fetch && git log --first-parent --date=short --format=tree ${1-$(git rev-parse --abbrev-ref HEAD)}..origin/${1-$(git rev-parse --abbrev-ref HEAD)}' -
+  upl = !sh -c 'git fetch && git show --stat ${1-$(git rev-parse --abbrev-ref HEAD)}..origin/${1-$(git rev-parse --abbrev-ref HEAD)}' -
+  upd = !sh -c 'git fetch && git diff --stat ${1-$(git rev-parse --abbrev-ref HEAD)}..origin/${1-$(git rev-parse --abbrev-ref HEAD)}' -
 
 
   ##############
@@ -133,11 +115,6 @@
 
   ###################
   # Listing
-
-  # List commits showing changed files
-  list-changes = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --first-parent --decorate --stat
-  lc           = !git list
-
   # List branches (verbose)
   lb = branch -vv
   bv = branch -vv
@@ -158,15 +135,6 @@
   ###################
   # Graphing
 
-  # short-hand
-  graph = log --graph --oneline --date=short --pretty=format:\"%Cred%h %C(yellow)%ad%C(cyan)%d%Creset %s %C(bold)(%an)%Creset\"
-  gr = !git graph
-
-  # graph all branches
-  history = !sh -c 'git graph --full-history \"${1-HEAD}\" $(git abbrev-q \"${1-HEAD}@{u}\") \"${@:2}\"' -
-  hist = !git history
-  h = !git history
-
   # graph a current branch, together with its upstream
   graph-upstream = !sh -c 'git graph --first-parent \"${1-HEAD}\" $(git abbrev-q \"${1-HEAD}@{u}\") \"${@:2}\"' -
   gru = !git graph-upstream
@@ -175,11 +143,6 @@
   lhistory = !git graph-upstream
   lhist = !git lhistory
   lh = !git lhistory
-
-
-  ##################
-  # Search
-  grep = grep -Ii
 
 
   ##################
