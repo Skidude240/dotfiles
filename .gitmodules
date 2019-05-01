@@ -1,0 +1,6 @@
+[submodule "scripts/diff-so-fancy"]
+	path = scripts/diff-so-fancy
+	url = git@github.com:so-fancy/diff-so-fancy.git
+[submodule "scripts/smartless"]
+	path = scripts/smartless
+	url = git@github.com:stefanheule/smartless.git

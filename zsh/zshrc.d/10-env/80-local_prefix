@@ -32,8 +32,13 @@ function activate_local_prefix {
 
 	# LUA override
 	#export LUA_PREFIX="${LOCAL_PREFIX}"
-	
+
 	is_true "${1:-1}" && rehash
 
 }
 activate_local_prefix 1
+
+# add in the dotfiles scripts bin for access to them
+if [[ -z "$DOTFILES" && -d "$DOTFILES/scrips/bin" ]]; then
+        path_append "$DOTFILES/scripts/bin"
+fi
