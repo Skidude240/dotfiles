@@ -7,13 +7,15 @@
 
 ##############
 # System tools
-alias grep='grep --color'
-alias h='history'
+alias grep='grep -n -r -T --colour --exclude-dir=.svn'
+alias h='history | less'
 alias lsof='/usr/sbin/lsof'
 alias disk='du * -sh --total'
 alias dua='baobab'
 alias ctags='ctags -f ".tags"'
 alias g='git'
+alias groot='cd `git rev-parse --show-toplevel`'
+alias c='clear'
 
 
 #############

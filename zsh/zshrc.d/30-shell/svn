@@ -1,0 +1,16 @@
+#########################################
+# shell/svn
+# Author: Anders Convery
+#
+# Vim-specific shell configuration and aliases
+# Remove all files not under SVN control
+alias svn_clean="svn status --no-ignore | grep '^\?' | sed 's/^\?      //'  | xargs rm -rf"
+
+# SVN ADD all files not under SVN control
+alias svn_add="svn st | grep '^\?' | sed 's/^\?       //' | xargs svn add"
+
+# Disable SVN Keywords
+alias svn_kw_clr=' svn propset svn:keywords ""'
+
+# Enable SVN Date/Revision Keywords
+alias svn_kw=' svn propset svn:keywords "Date Revision"'
