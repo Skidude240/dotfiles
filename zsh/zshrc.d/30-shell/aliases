@@ -7,7 +7,7 @@
 
 ##############
 # System tools
-alias grep='grep -n -r -T --colour --exclude-dir=.svn'
+alias cgrep='grep -n -r -T --colour --exclude-dir=.svn'
 alias h='history | less'
 alias lsof='/usr/sbin/lsof'
 alias disk='du * -sh --total'
