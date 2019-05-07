@@ -38,6 +38,9 @@ map <leader>C "*C
 map <leader>p "*p
 map <leader>P "*P
 
+" Maps to help with commands
+map <leader>w : set wrap! <CR>
+map <leader>e : Ex <CR>
 
 " Ctrl+hjkl split switching
 inoremap <silent> <C-l> <c-w>l

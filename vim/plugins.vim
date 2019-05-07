@@ -68,6 +68,9 @@ endif
 	" Gitgutter: Shows signs for added, modifed, removed lines in current git repo
 	call SourceDotfile('plugins/gitgutter.vim')
 
+        " Tex
+        call SourceDotfile('plugins/tex.vim')
+
 	"""""""""""""""
 	" Other plugins
 
@@ -89,7 +92,7 @@ endif
 	Plug 'guns/xterm-color-table.vim'
 
 	" i3 status syntax
-	Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'vim' }
+	"Plug 'PotatoesMaster/i3-vim-syntax', { 'for': 'vim' }
 
 	" Tmux syntax highlighting
 	Plug 'tmux-plugins/vim-tmux', { 'for': 'tmux' }

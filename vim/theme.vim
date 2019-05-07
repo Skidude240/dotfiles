@@ -13,6 +13,7 @@ endif
 
 " Background color
 set background=dark
+" hi Normal guibg=NONE ctermbg=NONE
 
 " Activate color scheme
 autocmd VimEnter * call SetColorScheme()
@@ -50,8 +51,8 @@ endif
 
 
 " Line numbering
-set number
-"set relativenumber
+"set number
+set relativenumber
 
 " Highlight current line
 set cursorline
