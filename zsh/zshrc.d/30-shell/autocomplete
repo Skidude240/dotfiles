@@ -88,10 +88,15 @@ function init_completion {
 	autoload -U compinit
 	compinit #-C -i
 
+        ##################
+        # Allow bash completion scripts to be sourced
+        autoload -U bashcompinit
+        bashcompinit
+
 	####################
 	# Disable ~<user> directory autocompletion as it's slow in systems with a lot of users
 	function _users {
-		compadd -X "users" "$USER" 
+		compadd -X "users" "$USER"
 	}
 
 	####################
