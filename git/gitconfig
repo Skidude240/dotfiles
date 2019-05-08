@@ -1,32 +1,34 @@
 [user]
   # Default author name
-  name = Anders Convery
+	name = Anders Convery
 
 [pretty]
-  tree = "%Cred%h %Creset%ad%C(auto)%d %Creset %s %C(bold)(%an)%Creset"
+	tree = "%Cred%h %Creset%ad%C(auto)%d %Creset %s %C(bold)(%an)%Creset"
 
 [core]
   # Set a local excludes file
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
   # Preload the index in parallel
-  preloadindex = true
+	preloadindex = true
   # Helps with large indexes by splitting the index file
-  splitIndex = true
+	splitIndex = true
   # Don't perform any output conversion with regards to CR/LF
-  autocrlf = input
+	autocrlf = input
   # Warn on specific whitespace issues
-  whitespace = blank-at-eol,space-before-tab,-blank-at-eof
+	whitespace = blank-at-eol,space-before-tab,-blank-at-eof
   # The untracked cache makes git status operations on large repos much faster
   # Some file systems do not support it (it relies on directory mtime) so we should not enable it by default
   # Test support by using "git update-index --test-untracked-cache"
   # If the test passes, enable it for the current repo with "git update-index --untracked-cache"
   untrackedCache = keep
+  # Setup smartless paging
+  pager = smartless --tabs=4 -+$LESS -Ri~
 
 [diff]
-  indentHeuristic = true
-  prompt = false
-  wsErrorHighlight = all
-  algorithm = histogram ; produce better diffs
+	indentHeuristic = true
+	prompt = false
+	wsErrorHighlight = all
+	algorithm = histogram ; produce better diffs
 
 [rerere]
 	enabled = true
@@ -36,23 +38,23 @@
 	autoSquash = true
 
 [diff-so-fancy]
-  useUnicodeRuler = false
+	useUnicodeRuler = false
 
 [merge]
   # Set default conflict style
-  conflictstyle = diff3
+	conflictstyle = diff3
   # toool is kdiff3
-  tool = kdiff3
+	tool = kdiff3
 
 [push]
   # Block pushes if submodules are not present on the remote
   #recurseSubmodules = check
   # 'git push' by default to tracking branch
-  default = upstream
+	default = upstream
 
 [pull]
   # preform rebase on pull
-  rebase = true
+	rebase = true
 
 [pager]
 	status = true
@@ -73,112 +75,116 @@
 
 [status]
   # Submarize the submodule status when doing 'git status'
-  submodulesummary = 1
+	submodulesummary = 1
 
 [alias]
-  tree = !sh -c 'git log --glob="*${1-$(git rev-parse --abbrev-ref HEAD)}" --graph --color --date=short --format=tree' -
-  stree = !sh -c 'git log --first-parent --glob="*${1-$(git rev-parse --abbrev-ref HEAD)}" --graph --color --date=short --format=tree' -
-  atree = log --oneline --decorate --graph --all
-  st = status
-  co = checkout
-  rbc = rebase --continue
-  svrev = !sh -c  'git checkout -b svn_rev_r$1 `git svn find-rev r$1`' -
-  svnup = !sh -c 'git checkout master && git svn rebase && git-svn-ext refresh && git-svn-ext update'
-  np = !git --no-pager $!
-  sdiff = diff --submodule=diff
-  ss = submodule status
-  su = submodule update
-  sr = submodule update --remote
-  caned = commit --amend --no-edit
-  ups = !sh -c 'git fetch && git log --first-parent --date=short --format=tree ${1-$(git rev-parse --abbrev-ref HEAD)}..origin/${1-$(git rev-parse --abbrev-ref HEAD)}' -
-  upl = !sh -c 'git fetch && git show --stat ${1-$(git rev-parse --abbrev-ref HEAD)}..origin/${1-$(git rev-parse --abbrev-ref HEAD)}' -
-  upd = !sh -c 'git fetch && git diff --stat ${1-$(git rev-parse --abbrev-ref HEAD)}..origin/${1-$(git rev-parse --abbrev-ref HEAD)}' -
+	st = status
+	co = checkout
+	rbc = rebase --continue
+	svrev = !sh -c  'git checkout -b svn_rev_r$1 `git svn find-rev r$1`' -
+	svnup = !sh -c 'git checkout master && git svn rebase && git-svn-ext refresh && git-svn-ext update'
+	np = !git --no-pager $!
+	sdiff = diff --submodule=diff
+	ss = submodule status
+	su = submodule update
+	sr = submodule update --remote
+	caned = commit --amend --no-edit
 
 
   ##############
   # Current revision
   # NOTE: Separate quiet versions are necessary to guarantee the output is really silent ('-q' is not enough)
-  rev      = !sh -c 'git rev-parse --verify --short    \"${@-HEAD}\"' -
-  rev-q    = !sh -c 'git rev-parse --verify --short -q \"${@-HEAD}\" 2> /dev/null' -
-  abbrev   = !sh -c 'git rev-parse --verify --abbrev-ref    \"${@-HEAD}\"' -
-  abbrev-q = !sh -c 'git rev-parse --verify --abbrev-ref -q \"${@-HEAD}\" 2> /dev/null' -
+	rev      = !sh -c 'git rev-parse --verify --short    \"${@-HEAD}\"' -
+	rev-q    = !sh -c 'git rev-parse --verify --short -q \"${@-HEAD}\" 2> /dev/null' -
+	abbrev   = !sh -c 'git rev-parse --verify --abbrev-ref    \"${@-HEAD}\"' -
+	abbrev-q = !sh -c 'git rev-parse --verify --abbrev-ref -q \"${@-HEAD}\" 2> /dev/null' -
 
 
   ##############
   # Last commit shortcuts
-  last = log -1 HEAD --decorate
-  l = !git last
+	last = log -1 HEAD --decorate
+	l = !git last
 
-  dlast = diff --cached HEAD^
-  dl = !git dlast
+	dlast = diff --cached HEAD^
+	dl = !git dlast
 
 
   ###################
   # Listing
   # List branches (verbose)
-  lb = branch -vv
-  bv = branch -vv
-
-  # List commits not in upstream
-  lpush = !git graph @{upstream}..HEAD
-  lp = !git lpush
-
-  # Diff against upstream
-  dpush = diff @{upstream}..HEAD
-  dp = !git dpush
+	lb = branch -vv
+	bv = branch -vv
 
   # List all changes to a file
-  file = log -u
-  fdiff = !git file
+	file = log -u
+	fdiff = !git file
+
+  ##################
+  # showing the upstream changes
+	ups = !sh -c 'git fetch && git graph --first-parent \"${1-HEAD}\"..\"${1-HEAD}@{u}\"' -
+	upl = !sh -c 'git fetch && git show --stat \"${1-HEAD}\"..\"${1-HEAD}@{u}\"' -
+	upd = !sh -c 'git fetch && git diff --stat \"${1-HEAD}\"..\"${1-HEAD}@{u}\"' -
 
 
   ###################
   # Graphing
 
+  # Graph setup defualts
+	graph = log --graph --oneline --date=short --pretty=format:\"%Cred%h %Creset%ad%C(auto)%d %Creset %s %C(bold)(%an)%Creset\" #--pretty=tree
+
   # graph a current branch, together with its upstream
-  graph-upstream = !sh -c 'git graph --first-parent \"${1-HEAD}\" $(git abbrev-q \"${1-HEAD}@{u}\") \"${@:2}\"' -
-  gru = !git graph-upstream
+	tree = !sh -c 'git graph \"${1-HEAD}\" $(git abbrev-q \"${1-HEAD}@{u}\") \"${@:2}\"' -
+	ut = !git tree
 
-  # graph current branch
-  lhistory = !git graph-upstream
-  lhist = !git lhistory
-  lh = !git lhistory
+  # graph current branch with options to glob or remove merged branches
+	stree = !sh -c 'git graph --first-parent  -
+	gtree = !sh -c 'git graph  --glob=\"*${1-HEAD}\"  -
+	gstree = !sh -c 'git graph --first-parent --glob=\"*${1-HEAD}\"  -
 
+	lhistory = !git tree
+	lhist = !git lhistory
+	lh = !git lhistory
+
+  # graph all
+	atree = !sh -c 'git graph --oneline --decorate --graph --all'
 
   ##################
   # Gerrit
-  get-publish-branch = "!bash -c 'f(){ \
-      BRANCH_IN=\"${1:-HEAD}\" ; \
-      BRANCH=\"$(git abbrev-q \"${BRANCH_IN}@{u}\")\" ; \
-      ORIGIN_BRANCH=\"${BRANCH#origin\\/}\" ; \
-      if [[ -z \"$ORIGIN_BRANCH\" || \"$BRANCH\" == \"$ORIGIN_BRACH\" ]]; then \
-        BRANCH=\"$(git abbrev-q \"${BRANCH_IN}\")\" ; \
-        if [[ -z \"$BRANCH\" ]]; then \
-          echo \"$BRANCH_IN\" ; \
-        else \
-          echo \"$BRANCH\" ; \
-        fi ; \
-        return 0 ; \
-      fi ; \
-      echo \"${ORIGIN_BRANCH}\" ; \
-      return 0 ; \
-    }; \
-    f \"$@\" ' -"
-  publish = !sh -c 'git push origin \"${2-HEAD}:refs/for/${1-$(git get-publish-branch)}\" ' -
-  draft   = !sh -c 'git push origin \"${2-HEAD}:refs/for/${1-$(git get-publish-branch)}%wip\" ' -
-  wip     = !git draft
-  private = !sh -c 'git push origin \"${2-HEAD}:refs/for/${1-$(git get-publish-branch)}%private\" ' -
+	get-publish-branch = "!bash -c 'f(){ \
+		BRANCH_IN=\"${1:-HEAD}\" ; \
+		BRANCH=\"$(git abbrev-q \"${BRANCH_IN}@{u}\")\" ; \
+		ORIGIN_BRANCH=\"${BRANCH#origin\\/}\" ; \
+		if [[ -z \"$ORIGIN_BRANCH\" || \"$BRANCH\" == \"$ORIGIN_BRACH\" ]]; then \
+		BRANCH=\"$(git abbrev-q \"${BRANCH_IN}\")\" ; \
+		if [[ -z \"$BRANCH\" ]]; then \
+		echo \"$BRANCH_IN\" ; \
+		else \
+		echo \"$BRANCH\" ; \
+		fi ; \
+		return 0 ; \
+		fi ; \
+		echo \"${ORIGIN_BRANCH}\" ; \
+		return 0 ; \
+		}; \
+		f \"$@\" ' -"
+	publish = !sh -c 'git push origin \"${2-HEAD}:refs/for/${1-$(git get-publish-branch)}\" ' -
+	draft   = !sh -c 'git push origin \"${2-HEAD}:refs/for/${1-$(git get-publish-branch)}%wip\" ' -
+	wip     = !git draft
+	private = !sh -c 'git push origin \"${2-HEAD}:refs/for/${1-$(git get-publish-branch)}%private\" ' -
 
 
   ##################
   # Aliases
   # Better: zsh "git_aliases" helper
-  alias = "!git config -l | grep alias | cut -c 7- | sort -u -k1 -t= | sed \"s/ \\+/ /g\""
+	alias = "!git config -l | grep alias | cut -c 7- | sort -u -k1 -t= | sed \"s/ \\+/ /g\""
 
 
   ##################
   # Directory traversal
 
   # Go to git root
-  root = rev-parse --show-toplevel
-  dir  = rev-parse --absolute-git-dir
+	root = rev-parse --show-toplevel
+	dir  = rev-parse --absolute-git-dir
+
+[include]
+	path = ~/dotfiles_local/git/gitconfig
