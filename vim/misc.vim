@@ -64,3 +64,6 @@ augroup filetype_paths
 	au BufNewFile,BufRead $DOTFILES/i3/config.d/*.conf setl filetype=i3
 	au BufNewFile,BufRead */zsh/* setl filetype=zsh
 augroup END
+ 
+" Strip out trailing whitespace on buffer write
+autocmd BufWritePre * :%s/\s\+$//e

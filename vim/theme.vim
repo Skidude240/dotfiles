@@ -51,7 +51,7 @@ endif
 
 
 " Line numbering
-"set number
+set number
 set relativenumber
 
 " Highlight current line
