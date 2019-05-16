@@ -1,0 +1,10 @@
+#########################################
+# Scripts Referenced in this Repo
+# Author: Anders Convery
+#
+# Set up path for scripts pulled in from other git repos that are submodules.
+
+# add in the dotfiles scripts bin for access to them
+if [[ -n "$DOTFILES" && -d "$DOTFILES/scripts/bin" ]]; then
+        path_append "$DOTFILES/scripts/bin"
+fi
