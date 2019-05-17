@@ -137,9 +137,9 @@
 	ut = !git tree
 
   # graph current branch with options to glob or remove merged branches
-	stree = !sh -c 'git graph --first-parent  -
-	gtree = !sh -c 'git graph  --glob=\"*${1-HEAD}\"  -
-	gstree = !sh -c 'git graph --first-parent --glob=\"*${1-HEAD}\"  -
+	stree = !sh -c 'git graph --first-parent' -
+	gtree = !sh -c 'git graph  --glob=\"*${1-HEAD}\"'  -
+	gstree = !sh -c 'git graph --first-parent --glob=\"*${1-HEAD}\"' -
 
 	lhistory = !git tree
 	lhist = !git lhistory
