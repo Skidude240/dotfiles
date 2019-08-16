@@ -1,0 +1,19 @@
+# Authour: Anders Convery
+# Version: 1.0
+# Reasin: Basic Env setup for bootstraping zsh
+
+if [[ -z ${LOCAL_PREFIX+x} ]]; then 
+	echo "[Bootstrap] Set LOCAL_PREFIX!"
+	exit 1
+fi
+
+export PATH="${LOCAL_PREFIX}/bin":${PATH};
+export LD_LIBRARY_PATH="${LOCAL_PREFIX}/lib64:${LOCAL_PREFIX}/lib":${LD_LIBRARY_PATH};
+export LIBRARY_PATH="${LOCAL_PREFIX}/lib64:${LOCAL_PREFIX}/lib":${LIBRARY_PATH};
+export PKG_CONFIG_PATH=${PKG_CONFIG_PATH}:"${LOCAL_PREFIX}/lib/pkgconfig";
+export CPATH="${LOCAL_PREFIX}/include":${CPATH};
+export C_INCLUDE_PATH="${LOCAL_PREFIX}/include":${C_INCLUDE_PATH};
+export CPLUS_INCLUDE_PATH="${LOCAL_PREFIX}/include":${CPLUS_INCLUDE_PATH};
+export MANPATH="${LOCAL_PREFIX}/share/man":${MANPATH};
+export INFOPATH="${LOCAL_PREFIX}/share/man":${INFOPATH};
+
