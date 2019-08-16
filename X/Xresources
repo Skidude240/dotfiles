@@ -50,7 +50,7 @@ Xcursor.size: 32
 XTerm.termName: xterm-256color
 
 ! Remove SCrollbar
-XTerm*scrollBar: false
+XTerm*ScrollBar: false
 
 ! Fix Shift-Tab escape sequence
 XTerm*VT100.translations: #override \
