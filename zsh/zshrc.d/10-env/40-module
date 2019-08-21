@@ -30,9 +30,16 @@ function init_custom_module {
 		# Store variables that are discarded by modules-init
 		local tz="$TZ"
 
-		# Initialize module subsystem
-		source_sh $DEPOT_SETUP_ROOT/init/sh.d/modules-init
-		source_sh $DEPOT_SETUP_ROOT/init/sh.d/shell-config
+		# Initialize module subsystem, There are two ways which are incompatabile
+		# as such check to see which we should run
+		if [[ -d "${DEPOT_SETUP_ROOT}"/init/sh.d ]]; then
+			source_sh $DEPOT_SETUP_ROOT/init/sh.d/modules-init
+			source_sh $DEPOT_SETUP_ROOT/init/sh.d/shell-config
+		elif [[ -f "${DEPOT_SETUP_ROOT}"/init/zsh ]]; then
+			source "${DEPOT_SETUP_ROOT}"/init/zsh
+		else
+			echo_error "Could not determine how to configure modules" "module"
+		fi
 
 		# Wrap module subsystem
 		eval "function _orig_$( typeset -f module )"
