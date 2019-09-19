@@ -17,3 +17,7 @@ let g:indentLine_setColors = 0
 " Keep conceal value
 let g:indentLine_setConceal = 0
 let g:indentLine_concealcursor = ""
+
+" Don't show the '|' for nerdtree windows
+let g:indentLine_bufNameExclude=['.*NERD.*']
+autocmd FileType help,nerdtree IndentLinesToggle

@@ -32,17 +32,31 @@ let g:airline#extensions#tabline#buf_label_first = 0
 let g:airline#extensions#tabline#ellipsis = "\u22ef"
 let g:airline#extensions#tabline#pad_with_spaces = 1
 
+if !exists('g:airline_symbols')
+  let g:airline_symbols = {}
+endif
+let g:airline_symbols.space = "\ua0"
+
+"status line symbols
+let g:airline_left_sep = ''
+let g:airline_right_sep = ''
+let g:airline_symbols.linenr = '␤'
+let g:airline_symbols.notexists = 'ﮢ'
+
+"indent detection symbols
+let g:airline#extensions#whitespace#symbol = ''
+
 " Add the window number in front of the mode
 function! WindowNumber(...)
-	let builder = a:1
-	let context = a:2
-	call builder.add_section('airline_b', '%{tabpagewinnr(tabpagenr())}')
-	return 0
+   let builder = a:1
+   let context = a:2
+   call builder.add_section('airline_b', '%{tabpagewinnr(tabpagenr())}')
+   return 0
 endfunction
 
 autocmd VimEnter * call SetupAirline()
 function SetupAirline()
-	call airline#add_statusline_func('WindowNumber')
-	call airline#add_inactive_statusline_func('WindowNumber')
-	AirlineRefresh
+   call airline#add_statusline_func('WindowNumber')
+   call airline#add_inactive_statusline_func('WindowNumber')
+   AirlineRefresh
 endfunction

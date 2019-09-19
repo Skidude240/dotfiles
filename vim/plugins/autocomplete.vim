@@ -20,6 +20,14 @@ if has('nvim')
 	Plug 'Shougo/neosnippet.vim'
 	Plug 'Shougo/neosnippet-snippets'
 
+   " Remap verilog mappings
+   if !exists('g:neosnippet#scope_aliases')
+     let g:neosnippet#scope_aliases = {}
+   endif
+   let g:neosnippet#scope_aliases['verilog_systemverilog'] = 'systemverilog'
+
+   " set the directory
+   let g:neosnippet#snippets_directory = "~/.config/nvim/plugged/neosnippet-snippets/neosnippets"
 	" Enable deoplete.
 	let g:deoplete#enable_at_startup = 1"
 
@@ -44,7 +52,7 @@ endif " has('nvim')
 function! AutoCompleteInsertModeCR()
 	if pumvisible()
 		if !empty(v:completed_item)
-			if neosnippet#expandable() 
+			if neosnippet#expandable()
 				call feedkeys("\<Plug>(neosnippet_expand)", 'm')
 				return ""
 			else
@@ -69,7 +77,7 @@ function! AutoCompleteInsertModeTAB()
 	if pumvisible()
 		return "\<C-n>"
 	else
-		if neosnippet#expandable_or_jumpable() 
+		if neosnippet#expandable_or_jumpable()
 			call feedkeys("\<Plug>(neosnippet_expand_or_jump)", 'm')
 			return ""
 		else

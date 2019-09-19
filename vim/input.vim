@@ -41,6 +41,9 @@ map <leader>P "*P
 " Maps to help with commands
 map <leader>w : set wrap! <CR>
 map <leader>e : Ex <CR>
+map <leader>c : close <CR>
+map <leader>a mzggVG=`z :w <CR>
+map <leader>v : vsp <CR>
 
 " Ctrl+hjkl split switching
 inoremap <silent> <C-l> <c-w>l

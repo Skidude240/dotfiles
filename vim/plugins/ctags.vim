@@ -24,6 +24,9 @@ let g:gutentags_cache_dir = '~/.vim/tags'
 " Don't start gutentags on a gitcommit
 let g:gutentags_exclude_filetypes = ['gitcommit']
 
+" Set project roots
+let g:gutentags_project_root  = ['.p4config', '.gentags']
+
 """""""
 " Tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }

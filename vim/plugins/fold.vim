@@ -15,11 +15,17 @@ Plug 'Konfekt/FoldText'
 " Automatically fold by indentation
 set foldmethod=indent
 
+" Allow manual folds
+"augroup fancyfold
+"   au BufReadPre * setlocal foldmethod=indent
+"   au BufWinEnter * if &fdm == 'indent' | setlocal foldmethod=manual | endif
+"augroup END
+
 " Open files with all folds opened
 set foldlevelstart=99
 
 " Show folds in a column (next to line number)
-set foldcolumn=1 
+set foldcolumn=1
 
 " FastFold should wrap all the fold commands
 let g:fastfold_fold_command_suffixes = ['x','X','a','A','o','O','c','C','r','R','m','M','i','n','N']
