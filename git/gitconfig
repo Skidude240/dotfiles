@@ -22,7 +22,7 @@
   # If the test passes, enable it for the current repo with "git update-index --untracked-cache"
   untrackedCache = keep
   # Setup smartless paging
-  pager = smartless --tabs=4 -+$LESS -Ri~
+  pager = diff-so-fancy | smartless --tabs=4 -+$LESS -Ri~
 
 [diff]
 	indentHeuristic = true
