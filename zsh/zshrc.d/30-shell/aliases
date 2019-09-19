@@ -40,8 +40,6 @@ fi
 #############
 # Software source code/builds
 hash -d src=$HOME/src
-hash -d aur=$HOME/aur
-
 
 ############
 # User directories

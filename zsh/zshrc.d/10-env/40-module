@@ -132,7 +132,7 @@ function init_custom_module {
 	typeset -gA _module_cmd_deps=()
 	typeset -gA _module_aliases=()
 	typeset -g  _modules_defaults=()
-	
+
 	typeset -g _module_alias_symbol="%"
 	typeset -g _module_name_symbol=":"
 
@@ -317,7 +317,7 @@ function init_custom_module {
 				fi
 			esac
 		done
-		
+
 		_module_deps[${malias}]="$mdeps"
 		return 0
 	}
