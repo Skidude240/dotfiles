@@ -4,3 +4,6 @@
 [submodule "scripts/smartless"]
 	path = scripts/smartless
 	url = git@github.com:stefanheule/smartless.git
+[submodule "scripts/scraps"]
+	path = scripts/scraps
+	url = git@github.com:Skidude240/scraps.git
