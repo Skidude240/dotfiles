@@ -17,6 +17,10 @@ alias g='git'
 alias groot='cd `git rev-parse --show-toplevel`'
 alias c='clear'
 
+function pdiff {
+	p4diff "$@" | diff-so-fancy | smartless
+}
+
 
 #############
 # Dotfiles
