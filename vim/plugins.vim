@@ -68,8 +68,15 @@ endif
 	" Gitgutter: Shows signs for added, modifed, removed lines in current git repo
 	call SourceDotfile('plugins/gitgutter.vim')
 
-        " Tex
-        call SourceDotfile('plugins/tex.vim')
+	" Tex
+	call SourceDotfile('plugins/tex.vim')
+
+	" Sleuth
+	call SourceDotfile('plugins/sleuth.vim')
+
+	" Plant UML and markdown
+	call SourceDotfile('plugins/plantuml.vim')
+	call SourceDotfile('plugins/markdown.vim')
 
 	"""""""""""""""
 	" Other plugins
