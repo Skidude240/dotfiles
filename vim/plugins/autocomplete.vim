@@ -7,9 +7,10 @@
 
 " Neovim
 if has('nvim')
-	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+	Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins', 'commit' : '3356b17' }
 	Plug 'Shougo/context_filetype.vim'
 	Plug 'Shougo/neoinclude.vim'
+	Plug 'deoplete-plugins/deoplete-tag'
 
 	" File types
 	Plug 'Shougo/neco-vim', { 'for': 'vim' }

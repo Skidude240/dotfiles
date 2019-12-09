@@ -27,6 +27,9 @@ let g:gutentags_exclude_filetypes = ['gitcommit']
 " Set project roots
 let g:gutentags_project_root  = ['.p4config', '.gentags']
 
+" extract more information about the classes and heirachy
+let g:gutentags_ctags_extra_args = ['--extra=+q', '--fields=+i' ]
+
 """""""
 " Tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }

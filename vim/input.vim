@@ -42,7 +42,7 @@ map <leader>P "*P
 map <leader>w : set wrap! <CR>
 map <leader>e : Ex <CR>
 map <leader>c : close <CR>
-map <leader>a mzggVG=`z :w <CR>
+map <leader>a mzggVG=`z:w<CR>
 map <leader>v : vsp <CR>
 
 " Ctrl+hjkl split switching
