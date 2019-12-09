@@ -18,6 +18,10 @@ let g:indentLine_setColors = 0
 let g:indentLine_setConceal = 0
 let g:indentLine_concealcursor = ""
 
-" Don't show the '|' for nerdtree windows
-let g:indentLine_bufNameExclude=['.*NERD.*']
-autocmd FileType help,nerdtree IndentLinesToggle
+" Don't show the '|' for nerdtree windows or help
+autocmd Filetype help IndentLinesDisable
+" Something reenable the indentline i dont have time to find it atm so brute
+" force the buffer to rediable on enter
+autocmd Filetype nerdtree autocmd BufEnter <buffer> IndentLinesDisable
+autocmd FileType nerd* IndentLinesDisable
+
