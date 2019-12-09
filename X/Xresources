@@ -72,11 +72,14 @@ xterm*utf8: 1
 ! Force good line-drawing characters
 XTerm.vt100.forceBoxChars: true
 
+! Force DPI
+Xft.dpi: 92
+
 !! Fonts
 ! Deja Vu Sans Mono (Nerd Font)
 !XTerm.*.faceName: xft:DejaVuSansMono Nerd Font Mono:regular:size=8:antialias=true:hinting=true
 ! Meslo (Menlo Nerd Font)
-XTerm.*.faceName: xft:MesloLGS Nerd Font Mono:RegularForPowerline:size=8:antialias=true:hinting=true
+XTerm.*.faceName: xft:MesloLGS Nerd Font Mono:RegularForPowerline:size=10:antialias=true:hinting=true
 ! Consolas (manually patched Nerd Fonts version)
 !XTerm.vt100.faceName: xft:Consolas NF:regular:size=11:antialias=true:hinting=true
 
