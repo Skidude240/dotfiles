@@ -8,19 +8,19 @@
 Plug 'cohama/lexima.vim'
 
 function! Lexima_endwise_make_rule(at, end, filetype, syntax)
+  "\ 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1' . a:end,
   call lexima#add_rule({
-  \ 'char': '<CR>',
+  \ 'char': '~',
   \ 'input': '<CR>',
   \ 'input_after': '<CR>' . a:end,
   \ 'at': a:at,
-  \ 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1' . a:end,
   \ 'filetype': a:filetype,
   \ 'syntax': a:syntax,
   \ })
 endfunction
 
 function! Lexima_endwise_SV_rule(open, close)
-	call Lexima_endwise_make_rule('\<\%('.a:open.'\)\>.*\%#', a:close, 'verilog_systemverilog', [])
+	call Lexima_endwise_make_rule('\<\('.a:open.'\)\>.*\%#', a:close, ['verilog', 'systemverilog', 'verilog_systemverilog'], [])
 endfunction
 
 autocmd VimEnter * call SetupLexima()
@@ -32,7 +32,7 @@ function SetupLexima()
 	call Lexima_endwise_SV_rule('begin','end')
 	call Lexima_endwise_SV_rule('case\|casex\|casez','endcase')
 	call Lexima_endwise_SV_rule('module','endmodule')
-	call Lexima_endwise_SV_rule('if','endif')
+	call Lexima_endwise_SV_rule('if.*begin','end')
 	call Lexima_endwise_SV_rule('fork','join')
 	call Lexima_endwise_SV_rule('function','endfunction')
 	call Lexima_endwise_SV_rule('task','endtask')
