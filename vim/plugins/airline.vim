@@ -46,6 +46,10 @@ let g:airline_symbols.notexists = 'ﮢ'
 "indent detection symbols
 let g:airline#extensions#whitespace#symbol = ''
 
+"Spell checking settints
+let g:airline_detect_spelllang = 0
+let g:airline_symbols.spell = '暈'
+
 " Add the window number in front of the mode
 function! WindowNumber(...)
    let builder = a:1

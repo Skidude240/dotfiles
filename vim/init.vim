@@ -23,6 +23,9 @@ call SourceDotfile('tabs.vim')
 " Input
 call SourceDotfile('input.vim')
 
+" Spelling
+call SourceDotfile('spell.vim')
+
 " Scrolling
 call SourceDotfile('scrolling.vim')
 
