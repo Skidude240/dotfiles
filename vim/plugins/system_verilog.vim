@@ -5,6 +5,12 @@
 " Verilog/System Verilog syntax highlighting
 """""""""""""""""""""""""""""""""""""""""
 
+" Attempt to match enums and typedefs in a dirty way
+let g:verilog_syntax_custom = {
+	\'Statement' : [{'match' : '\<[et]_\w*\>\|\<\w*_[et]\>'}],
+	\'Object' :  [{'match' : '\<uvm_\w*\>'}],
+\}
+
 " Load plugin
 Plug 'vhda/verilog_systemverilog.vim'
 

@@ -30,6 +30,11 @@ let g:gutentags_project_root  = ['.p4config', '.gentags']
 " extract more information about the classes and heirachy
 let g:gutentags_ctags_extra_args = ['--extra=+q', '--fields=+i' ]
 
+" Only updates tags on a write
+let g:gutentags_generate_on_missing = 0
+let g:gutentags_generate_on_new = 0
+let g:gutentags_generate_on_empty_buffer = 0
+
 """""""
 " Tagbar
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }

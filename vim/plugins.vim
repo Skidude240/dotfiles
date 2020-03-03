@@ -60,6 +60,7 @@ endif
 	" Ctags
 	if has('nvim') || v:version >= 704
 		call SourceDotfile('plugins/ctags.vim')
+		call SourceDotfile('plugins/TagHighlight.vim')
 	endif
 
 	" vim-json: Better JSON formatting
