@@ -1,0 +1,41 @@
+#########################################
+# helpers/tags+
+# Author: Anders Convery
+#
+# Nasty code to watch for a tag file changing and then call vim on a
+# project file update the Taghighlight type files for that project.
+# Its nasty and requires multiple other stars to align to work
+#
+function watchTags() {
+	local file=$(realpath ${1})
+	if [[ ! -f ${file} ]]; then
+		echo_error "$1 is not a file!" "watchTags"
+		return 1
+	fi
+	echo_debug "File is ${file}" "watchTags"
+
+	local tags=$(realpath ${2})
+	if [[ ! -f ${tags} ]]; then
+		echo_error "$1 tag file not there!" "watchTags"
+		return 1
+	fi
+	echo_debug "tags is ${tags}" "watchTags"
+
+	local sleepTime=${3:-5m}
+	echo_debug "sleep will be ${sleepTime}" "watchTags"
+
+	local oldTime=$(stat -c %Y ${tags})
+	sleep ${sleepTime} || {echo_error "Bad sleep" "watchTags" && return 1}
+
+	local thisTime=0
+	while true; do
+		thisTime=$(stat -c %Y ${tags})
+		if [[ $thisTime -ne $oldTime  ]]; then
+			nvim -c 'UpdateTypesFile | :q!' ${file}
+		fi
+		oldTime=$thisTime
+		sleep ${sleepTime};
+	done
+
+}
+
