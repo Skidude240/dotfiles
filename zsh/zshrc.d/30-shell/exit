@@ -1,0 +1,9 @@
+#########################################
+# shell/exit
+# Author: Anders Convery
+#
+# exit related config
+
+# CTRL D no longer triggers exit
+setopt ignoreeof
+

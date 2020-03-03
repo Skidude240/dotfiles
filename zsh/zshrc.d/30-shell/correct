@@ -1,0 +1,12 @@
+#########################################
+# shell/correct
+# Author: Anders Convery
+#
+# enable spell checking
+#
+# correct misspellings
+setopt correct
+setopt correctall
+
+
+
