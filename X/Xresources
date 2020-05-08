@@ -72,9 +72,6 @@ xterm*utf8: 1
 ! Force good line-drawing characters
 XTerm.vt100.forceBoxChars: true
 
-! Force DPI
-Xft.dpi: 92
-
 !! Fonts
 ! Deja Vu Sans Mono (Nerd Font)
 !XTerm.*.faceName: xft:DejaVuSansMono Nerd Font Mono:regular:size=8:antialias=true:hinting=true
