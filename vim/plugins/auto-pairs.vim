@@ -10,7 +10,7 @@ Plug 'cohama/lexima.vim'
 function! Lexima_endwise_make_rule(at, end, filetype, syntax)
   "\ 'except': '\C\v^(\s*)\S.*%#\n%(%(\s*|\1\s.+)\n)*\1' . a:end,
   call lexima#add_rule({
-  \ 'char': '~',
+  \ 'char': '>',
   \ 'input': '<CR>',
   \ 'input_after': '<CR>' . a:end,
   \ 'at': a:at,

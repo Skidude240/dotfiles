@@ -4,7 +4,7 @@
 "
 " Tagbased highligting
 """""""""""""""""""""""""""""""""""""""""
-Plug 'kendling/TagHighlight', { 'for' : 'verilog_systemverilog' }
+Plug 'kendling/TagHighlight'
 
 if ! exists('g:TagHighlightSettings')
 	let g:TagHighlightSettings = {}
