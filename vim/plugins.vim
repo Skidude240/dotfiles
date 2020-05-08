@@ -79,6 +79,9 @@ endif
 	call SourceDotfile('plugins/plantuml.vim')
 	call SourceDotfile('plugins/markdown.vim')
 
+	" Python IDE
+	call SourceDotfile('plugins/python_ide.vim')
+
 	"""""""""""""""
 	" Other plugins
 
