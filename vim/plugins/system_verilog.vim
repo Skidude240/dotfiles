@@ -26,3 +26,4 @@ au bufread,bufnewfile *.svh set filetype=verilog_systemverilog
 
 au FileType verilog_systemverilog setlocal commentstring=//%s
 au FileType verilog               setlocal commentstring=//%s
+

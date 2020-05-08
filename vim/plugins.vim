@@ -129,5 +129,4 @@ endif
 	" vc.vim: VCS commands
 	Plug 'juneedahamed/vc.vim'
 
-
 call plug#end()

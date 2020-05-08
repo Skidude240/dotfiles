@@ -66,3 +66,4 @@ function! WrapNERDTreeCommand(cmd)
 	exe "cnoreabbrev <expr> ".a:cmd.' (IsNERDTree() ? "wincmd p \<Bar> '.a:cmd.'" : "'.a:cmd.'")'
 endfunction
 call WrapNERDTreeCommand('Ag')
+
