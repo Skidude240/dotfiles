@@ -82,6 +82,9 @@ endif
 	" Python IDE
 	call SourceDotfile('plugins/python_ide.vim')
 
+	" Perforce
+	call SourceDotfile('plugins/perforce.vim')
+
 	"""""""""""""""
 	" Other plugins
 
