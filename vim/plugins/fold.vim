@@ -43,3 +43,4 @@ endfunction
 " In normal/visual mode, use Space to toggle folds
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+nnoremap <silent> <leader>z :let&l:fdl=indent('.')/&sw<cr>
