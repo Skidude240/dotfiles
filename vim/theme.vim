@@ -13,6 +13,7 @@ endif
 
 " Background color
 set background=dark
+let g:neosolarized_termtrans=1
 " hi Normal guibg=NONE ctermbg=NONE
 
 " Activate color scheme
