@@ -71,3 +71,20 @@ augroup END
 
 " Strip out trailing whitespace on buffer write
 autocmd BufWritePre * :%s/\s\+$//e
+
+" Enable gf to support tcl syntax includes
+" Add charecters to possible filename types so vim will recognize:
+"    $::env(THIS)/as/a/file.tcl
+set isfname+={,},(,),:
+
+" Turn the string into something vim knows as a filename:
+"    $::env(THIS)/as/a/file.tcl => ${THIS}/as/a/file.tcl
+function! TclGfIncludeExpr(fname)
+  if a:fname =~? '\$\(::\)\?env([^)]\+)'
+    return substitute(a:fname, '\$\(::\)\?env(\([^)]\+\))', '${\2}', 'g')
+  endif
+  return a:fname
+endfunction
+
+" Tie the function to includeexpr
+set includeexpr=TclGfIncludeExpr(v:fname)
