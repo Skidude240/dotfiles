@@ -132,4 +132,7 @@ endif
 	" vc.vim: VCS commands
 	Plug 'juneedahamed/vc.vim'
 
+	" vim-surround: add surrounding marks to words lines
+	Plug 'tpope/vim-surround'
+
 call plug#end()
