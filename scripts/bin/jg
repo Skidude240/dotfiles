@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+export PATH=${PATH#*:}
+
+jg "$@" -bg \#204a5a -fg \#839496
