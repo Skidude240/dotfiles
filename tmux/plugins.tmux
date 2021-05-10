@@ -15,7 +15,8 @@ set -ga @tpm_plugins 'tmux-plugins/tmux-prefix-highlight ' # highlight on status
 set -ga @tpm_plugins 'tmux-plugins/tmux-yank ' # Allow copy to system clipboard using prefix + y (or Y for PWD)
 set -ga @tpm_plugins 'nhdaly/tmux-better-mouse-mode ' # Better mouse behaviour
 set -ga @tpm_plugins 'tmux-plugins/tmux-cpu ' # CPU usage in status bar
-
+set -ga @tpm_plugins 'tmux-plugins/tmux-resurrect'
+set -ga @tpm_plugins 'tmux-plugins/tmux-continuum'
 
 ###########################
 # tmux-yank: Use "Shift-insert" buffer
@@ -35,6 +36,7 @@ set -g @scroll-speed-num-lines-per-scroll 6
 # tmux will emulate scrolling for "full-screen", alternate buffer programs, such as less, man, or vi
 set -g @emulate-scroll-for-no-mouse-alternate-buffer on
 
+set -g @resurrect-capture-pane-contents 'on'
 
 ###########################
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
